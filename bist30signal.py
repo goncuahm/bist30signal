@@ -90,8 +90,8 @@ for ticker in bist30_tickers:
         data = data.dropna()
 
         total_return, avg_return, trades = backtest_strategy(data, buy_threshold, sell_threshold, tcost)
-        latest_rsi = data["RSI"].iloc[-1]
-        latest_close = data["Close"].iloc[-1]
+        latest_rsi = float(data["RSI"].iloc[-1])
+        latest_close = float(data["Close"].iloc[-1])
 
         if latest_rsi < buy_threshold:
             signal = "BUY"
